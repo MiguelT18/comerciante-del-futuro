@@ -1,0 +1,60 @@
+---
+import { Icon } from "astro-icon/components";
+
+interface FunnelHighlights {
+  summary: string;
+  basics: string[];
+}
+
+const FUNNEL_HIGHLIGHTS: FunnelHighlights[] = [
+  {
+    summary: "El sistema de 3 embudos que te permitirá escalar a +100K",
+    basics: [
+      "Cómo escalar lanzamientos gratuitos en este 2026 (sin perder en el intento).",
+      "La estrategia de lanzamiento pago que nos generó ROAS mayor a 23.",
+      "El embudo evergreen que te da flujo de caja sin depender de picos de facturación.",
+    ],
+  },
+  {
+    summary: "Planeación completa para este 2026",
+    basics: [
+      "Las fechas estratégicas que DEBES explotar (y las que debes evitar).",
+      "Cómo calcular margen por producto y distribuir a lo largo del año",
+      "Qué productos y embudos usar en cada momento del año para maximizar lucro.",
+    ],
+  },
+  {
+    summary: "El sistema de 3 embudos que te permitirá escalar a +100K",
+    basics: [
+      "Cómo escalar lanzamientos gratuitos en este 2026 (sin perder en el intento).",
+      "La estrategia de lanzamiento pago que nos generó ROAS mayor a 23.",
+      "El embudo evergreen que te da flujo de caja sin depender de picos de facturación.",
+    ],
+  },
+];
+---
+
+<section>
+  <h1>Más información sobre este evento</h1>
+
+  <ul>
+    {
+      FUNNEL_HIGHLIGHTS.map((card, i) => (
+        <li>
+          <h3>Pilar {i + 1}</h3>
+          <p>{card.summary}</p>
+          <ul>
+            {card.basics.map((basic) => (
+              <li>{basic}</li>
+            ))}
+          </ul>
+        </li>
+      ))
+    }
+  </ul>
+
+  <button type="button">
+    <Icon name="mdi:register" />
+    ¡Registrarme ya!
+  </button>
+</section>

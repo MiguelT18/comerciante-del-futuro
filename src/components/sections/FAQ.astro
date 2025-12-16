@@ -1,0 +1,44 @@
+---
+import { Icon } from "astro-icon/components";
+
+interface FaqItem {
+  question: string;
+  answer: string;
+}
+
+const FAQ_ITEMS: FaqItem[] = [
+  {
+    question: "Cuándo es el evento Misión: Comerciante del futuro?",
+    answer:
+      "El evento será el domingo 14 de diciembre de 10:00 am a 4:00 pm hora Colombia.",
+  },
+  {
+    question: "¿Funciona si aún no he llegado a $30K en mi negocio?",
+    answer:
+      "Este evento está específicamente diseñado para los que ya facturan entre $30K-$50K y quieren escalar a 6 cifras. Si aún no has llegado a este nivel, te recomiendo enfocarte primero en consolidar tus primeros 30k como mínimo.",
+  },
+  {
+    question: "¿Esto funciona para mi nicho específico?",
+    answer:
+      "El sistema funciona para cualquier negocio de infoproductos. Los principios son universales, pero en el evento adaptaremos la estrategia a las particularidades de tu negocio.",
+  },
+];
+---
+
+<section>
+  <h1>Preguntas frecuentes</h1>
+
+  <ul>
+    {
+      FAQ_ITEMS.map((item) => (
+        <li>
+          <div>
+            {item.question}
+            <Icon name="bxs:up-arrow" />
+          </div>
+          <p>{item.answer}</p>
+        </li>
+      ))
+    }
+  </ul>
+</section>

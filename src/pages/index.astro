@@ -1,12 +1,20 @@
-<html lang="es">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
-    <title>Misión: Comerciante del Futuro</title>
-  </head>
-  <body>
-    <!-- TODO: 👇🏻 Add section components here -->
-  </body>
-</html>
+---
+import Layout from "@/layouts/Layout.astro";
+import About from "@/components/sections/About.astro";
+import Counter from "@/components/sections/Counter.astro";
+import FAQ from "@/components/sections/FAQ.astro";
+import Footer from "@/components/sections/Footer.astro";
+import Hero from "@/components/sections/Hero.astro";
+import Info from "@/components/sections/Info.astro";
+import Intro from "@/components/sections/Intro.astro";
+---
+
+<Layout>
+  <Hero />
+  <Counter />
+  <Intro />
+  <Info />
+  <About />
+  <FAQ />
+  <Footer />
+</Layout>

@@ -1,0 +1,45 @@
+---
+interface TeamCard {
+  name: string;
+  age: number;
+  image: string;
+  story: string;
+}
+
+// TODO: 📷 Include real photos of the instructors
+const INSTRUCTORS: TeamCard[] = [
+  {
+    name: "John Doe",
+    age: 24,
+    image: "/images/john.png",
+    story:
+      "Lorem ipsum dolor sit amet consectetur adipiscing elit quisque faucibus ex sapien vitae.",
+  },
+  {
+    name: "Jane Doe",
+    age: 28,
+    image: "/images/jane.png",
+    story:
+      "Lorem ipsum dolor sit amet consectetur adipiscing elit quisque faucibus ex sapien vitae.",
+  },
+];
+---
+
+<section>
+  <h1>¿Quiénes somos?</h1>
+
+  <ul>
+    {
+      INSTRUCTORS.map((instructor) => (
+        <li>
+          <div>
+            <h3>{instructor.name}</h3>
+            <span>{instructor.age}</span>
+          </div>
+          <p>{instructor.story}</p>
+          <button type="button">Ver más</button>
+        </li>
+      ))
+    }
+  </ul>
+</section>

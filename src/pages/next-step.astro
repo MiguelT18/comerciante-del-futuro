@@ -1,0 +1,38 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Footer from "@components/sections/Footer.astro";
+import { Icon } from "astro-icon/components";
+---
+
+<Layout title="¡Gracias por registrarte!">
+  <nav>
+    ⚠️ ¡Importante! ⚠️
+    <div>
+      <span>18/30 miembros</span>
+    </div>
+  </nav>
+
+  <section>
+    <h1>¡Falta solo un paso más!</h1>
+
+    <p>Toca el botón para ingresar al grupo de WhatsApp del evento.</p>
+
+    <a href="#">
+      <Icon name="ic:baseline-whatsapp" />
+      Completar mi registro
+    </a>
+
+    <p>
+      Es importante que estés en el grupo para que podamos enviarte los enlaces
+      de la clase, materiales complementarios e información del evento.
+    </p>
+
+    <hr />
+
+    <p>Recuerda que nos vemos el 30 de enero a las 7:05pm CR/8:05pm COL</p>
+
+    <p>¡Atento a tu correo, también recibirás información importante!</p>
+  </section>
+
+  <Footer />
+</Layout>

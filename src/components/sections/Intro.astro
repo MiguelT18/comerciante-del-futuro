@@ -1,0 +1,53 @@
+---
+import { Icon } from "astro-icon/components";
+
+interface IntroCards {
+  headline: string;
+  copy: string;
+  icon: string;
+}
+
+const INTRO_AUDIENCE: IntroCards[] = [
+  {
+    headline: "Quieres lanzar tu primera tienda online",
+    copy: "Perfecto si tienes ideas, pero te falta el mapa claro para arrancar sin perder tiempo ni dinero.",
+    icon: "ic:twotone-rocket-launch",
+  },
+  {
+    headline: "Ya vendes... pero quieres escalar tus resultados",
+    copy: "Ideal si buscas optimizar tu tienda, mejorar tu conversión y empezar a vender de forma más estratégica.",
+    icon: "icon-park-twotone:trend",
+  },
+  {
+    headline: "Buscas crear un negocio real, no solo un hobby",
+    copy: "Si estás listo para dejar de improvisar y construir un sistema que trabaje a tu favor todos los días.",
+    icon: "ic:twotone-storefront",
+  },
+  {
+    headline: "Quieres aprender lo que funciona HOY en e-commerce",
+    copy: "Si quieres tácticas y frameworks actuales, aplicables de inmediato sin tecnicismos innecesarios.",
+    icon: "ant-design:thunderbolt-twotone",
+  },
+];
+---
+
+<section>
+  <h1>Este evento es para ti si...</h1>
+
+  <ul>
+    {
+      INTRO_AUDIENCE.map((card) => (
+        <li>
+          <Icon name={card.icon} />
+          <h3>{card.headline}</h3>
+          <p>{card.copy}</p>
+        </li>
+      ))
+    }
+  </ul>
+
+  <button type="button">
+    <Icon name="mdi:register" />
+    ¡Registrarme ya!
+  </button>
+</section>
