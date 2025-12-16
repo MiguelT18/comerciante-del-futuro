@@ -1,0 +1,38 @@
+@import "tailwindcss";
+@import "@fontsource-variable/exo-2";
+@import "@fontsource/bebas-neue";
+
+:root {
+  --u: calc(1rem / 1.6);
+}
+
+body {
+  font-family: "Exo 2 Variable", sans-serif;
+}
+
+/* TODO: 🔠 Modify sizes according the prototype */
+/* TEXT SIZES */
+@theme {
+  --text-xs: clamp(calc(1.2 * var(--u)), 0.75rem + 0.5vw, calc(1.5 * var(--u)));
+  --text-sm: clamp(calc(1.4 * var(--u)), 0.75rem + 0.5vw, calc(1.8 * var(--u)));
+  --text-md: clamp(calc(2 * var(--u)), 0.75rem + 1.4vw, calc(2.8 * var(--u)));
+  --text-lg: clamp(calc(3.4 * var(--u)), 0.75rem + 3vw, calc(4.2 * var(--u)));
+  --text-xl: clamp(calc(4 * var(--u)), 0.75rem + 4vw, calc(5.4 * var(--u)));
+}
+
+/* TODO: 🌈 Modify colors according to the color palette from the prototype */
+/* COLOR PALETTE */
+@theme {
+  --color-primary: #6e56cf;
+  --color-secondary: #2a2a4a;
+
+  --color-destructive: #ff5470;
+  --color-success: #4caf50;
+  --color-info: #2196f3;
+  --color-warning: #ffc107;
+}
+
+/* FONT FAMILY */
+@theme {
+  --font-bebas-neue: "Bebas Neue", sans-serif;
+}
