@@ -28,17 +28,17 @@ const FAQ_ITEMS: FaqItem[] = [
 <section>
   <h1>Preguntas frecuentes</h1>
 
-  <ul>
+  <div>
     {
       FAQ_ITEMS.map((item) => (
-        <li>
-          <div>
+        <details>
+          <summary>
             {item.question}
             <Icon name="bxs:up-arrow" />
-          </div>
+          </summary>
           <p>{item.answer}</p>
-        </li>
+        </details>
       ))
     }
-  </ul>
+  </div>
 </section>

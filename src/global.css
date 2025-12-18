@@ -23,8 +23,10 @@ body {
 /* TODO: 🌈 Modify colors according to the color palette from the prototype */
 /* COLOR PALETTE */
 @theme {
-  --color-primary: #6e56cf;
-  --color-secondary: #2a2a4a;
+  --color-primary: #984cc9;
+  --color-secondary: #6d28d9;
+
+  --color-layout: #0b0219;
 
   --color-destructive: #ff5470;
   --color-success: #4caf50;
