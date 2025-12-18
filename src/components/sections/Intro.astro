@@ -31,6 +31,29 @@ const INTRO_AUDIENCE: IntroCards[] = [
 ];
 ---
 
+<style>
+  @keyframes show {
+    from {
+      opacity: 0%;
+      scale: 0%;
+    }
+    to {
+      opacity: 100%;
+      scale: 100%;
+    }
+  }
+
+  .card {
+    view-timeline-name: --reveal;
+
+    animation-name: show;
+    animation-fill-mode: both;
+
+    animation-timeline: --reveal;
+    animation-range: entry 25% cover 50%;
+  }
+</style>
+
 <section class="container mx-auto p-4">
   <h1 class="font-bebas-neue text-center text-lg mb-4">
     Este evento es para ti si...

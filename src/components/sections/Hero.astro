@@ -6,7 +6,7 @@ import PrimaryButton from "@/components/ui/PrimaryButton.astro";
 ---
 
 <main
-  class="relative min-h-dvh bg-[url(images/hero-background.png)] bg-cover bg-center pb-4 flex flex-col justify-between"
+  class="relative bg-[url(images/hero-background.png)] bg-cover bg-center pb-8 flex flex-col justify-between"
 >
   <div class="absolute inset-0 bg-black/70"></div>
 
@@ -15,11 +15,13 @@ import PrimaryButton from "@/components/ui/PrimaryButton.astro";
       <h1 class="text-md text-center font-black uppercase">LOGO</h1>
     </nav>
 
-    <div class="relative z-10 container mx-auto text-center px-4 space-y-2">
-      <h1 class="text-md font-bold">
+    <div
+      class="relative z-10 container mx-auto text-center px-4 mt-2 space-y-2"
+    >
+      <h1 class="text-lg font-bold">
         <span
           style={{ "box-shadow": "4px 4px 1px 1px #000000" }}
-          class="bg-secondary p-1 mx-2 -rotate-6 inline-block font-bold"
+          class="bg-secondary px-2 mx-1 -rotate-6 inline-block font-bold"
         >
           Aprende hoy
         </span>
@@ -27,7 +29,7 @@ import PrimaryButton from "@/components/ui/PrimaryButton.astro";
         previa.
       </h1>
 
-      <p class="text-text text-balance text-sm inline-block">
+      <p class="text-text text-balance text-md inline-block">
         Incluso aunque hoy solo dependas de tu sueldo, de tu tienda física o de
         tu propia marca que casi nadie conoce.
       </p>
@@ -40,7 +42,7 @@ import PrimaryButton from "@/components/ui/PrimaryButton.astro";
       alt="john y alonso asombrados por las notificaciones de ventas en su teléfono"
       width={200}
       height={200}
-      style={{ width: "clamp(12rem, 50vw, 18rem)" }}
+      style={{ width: "clamp(24rem, 50vw, 34rem)" }}
       class="-mb-8 mx-auto"
     />
 
