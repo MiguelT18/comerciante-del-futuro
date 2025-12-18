@@ -1,0 +1,18 @@
+---
+type ButtonTypes = "submit" | "reset" | "button";
+
+interface Props {
+  type?: ButtonTypes;
+  id?: string;
+}
+
+const { type, id } = Astro.props;
+---
+
+<button
+  id={id}
+  type={type ?? "button"}
+  class="bg-secondary p-2 rounded-md flex items-center justify-center gap-2 w-full cursor-pointer hover:bg-secondary/70 transition-all"
+>
+  <slot />
+</button>

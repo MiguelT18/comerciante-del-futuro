@@ -8,30 +8,39 @@
 
 body {
   font-family: "Exo 2 Variable", sans-serif;
+  background-color: #0b0219;
+  color: #ffffff;
 }
 
-/* TODO: 🔠 Modify sizes according the prototype */
 /* TEXT SIZES */
 @theme {
   --text-xs: clamp(calc(1.2 * var(--u)), 0.75rem + 0.5vw, calc(1.5 * var(--u)));
   --text-sm: clamp(calc(1.4 * var(--u)), 0.75rem + 0.5vw, calc(1.8 * var(--u)));
-  --text-md: clamp(calc(2 * var(--u)), 0.75rem + 1.4vw, calc(2.8 * var(--u)));
+  --text-md: clamp(calc(1.8 * var(--u)), 0.75rem + 1.4vw, calc(2.8 * var(--u)));
   --text-lg: clamp(calc(3.4 * var(--u)), 0.75rem + 3vw, calc(4.2 * var(--u)));
   --text-xl: clamp(calc(4 * var(--u)), 0.75rem + 4vw, calc(5.4 * var(--u)));
 }
 
-/* TODO: 🌈 Modify colors according to the color palette from the prototype */
 /* COLOR PALETTE */
 @theme {
   --color-primary: #984cc9;
   --color-secondary: #6d28d9;
 
   --color-layout: #0b0219;
+  --color-surface: linear-gradient(180deg, #150221 0%, #110524 100%);
+
+  --color-text: #a3a3a3;
 
   --color-destructive: #ff5470;
   --color-success: #4caf50;
   --color-info: #2196f3;
   --color-warning: #ffc107;
+}
+
+@layer utilities {
+  .bg-surface {
+    background-image: var(--color-surface);
+  }
 }
 
 /* FONT FAMILY */
