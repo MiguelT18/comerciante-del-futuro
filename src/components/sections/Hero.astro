@@ -36,24 +36,26 @@ import PrimaryButton from "@/components/ui/PrimaryButton.astro";
     </div>
   </div>
 
-  <form class="relative z-10 space-y-2 container mx-auto px-4" action="POST">
+  <form class="relative z-10 container mx-auto px-4" action="POST">
     <Image
       src={ForegroundImg}
       alt="john y alonso asombrados por las notificaciones de ventas en su teléfono"
       width={200}
       height={200}
-      style={{ width: "clamp(20rem, 50vw, 30rem)" }}
+      style={{ width: "clamp(18rem, 50vw, 28rem)" }}
       class="-mb-8 mx-auto"
     />
 
-    <input
-      type="email"
-      placeholder="user@test.xyz"
-      class="bg-white text-black placeholder:text-layout/30 p-2 rounded-md w-full text-sm"
-    />
-    <PrimaryButton type="submit">
-      <Icon name="mdi:register" />
-      Registrarme
-    </PrimaryButton>
+    <div class="w-full flex flex-col gap-3">
+      <input
+        type="email"
+        placeholder="user@test.xyz"
+        class="bg-white text-black placeholder:text-layout/30 p-2 rounded-md w-full text-sm"
+      />
+      <PrimaryButton type="submit">
+        <Icon name="mdi:register" />
+        Registrarme
+      </PrimaryButton>
+    </div>
   </form>
 </main>
