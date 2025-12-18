@@ -1,5 +1,6 @@
 ---
 import { Icon } from "astro-icon/components";
+import PrimaryButton from "../ui/PrimaryButton.astro";
 
 interface FaqItem {
   question: string;
@@ -26,9 +27,9 @@ const FAQ_ITEMS: FaqItem[] = [
 ---
 
 <section class="container mx-auto p-4">
-  <h1 class="font-bebas-neue text-center text-lg mb-4">Preguntas frecuentes</h1>
+  <h1 class="font-bebas-neue text-center text-xl mb-4">Preguntas frecuentes</h1>
 
-  <div>
+  <div class="mb-4">
     {
       FAQ_ITEMS.map((item) => (
         <details>
@@ -41,4 +42,9 @@ const FAQ_ITEMS: FaqItem[] = [
       ))
     }
   </div>
+
+  <PrimaryButton>
+    <Icon name="mdi:register" />
+    ¡Registrarme ya!
+  </PrimaryButton>
 </section>

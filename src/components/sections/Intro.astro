@@ -1,5 +1,6 @@
 ---
 import { Icon } from "astro-icon/components";
+import PrimaryButton from "../ui/PrimaryButton.astro";
 
 interface IntroCards {
   headline: string;
@@ -55,11 +56,11 @@ const INTRO_AUDIENCE: IntroCards[] = [
 </style>
 
 <section class="container mx-auto p-4">
-  <h1 class="font-bebas-neue text-center text-lg mb-4">
+  <h1 class="font-bebas-neue text-center text-xl mb-4">
     Este evento es para ti si...
   </h1>
 
-  <ul>
+  <ul class="mb-4">
     {
       INTRO_AUDIENCE.map((card) => (
         <li>
@@ -71,8 +72,8 @@ const INTRO_AUDIENCE: IntroCards[] = [
     }
   </ul>
 
-  <button type="button">
+  <PrimaryButton type="button">
     <Icon name="mdi:register" />
     ¡Registrarme ya!
-  </button>
+  </PrimaryButton>
 </section>

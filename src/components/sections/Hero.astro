@@ -10,30 +10,26 @@ import PrimaryButton from "@/components/ui/PrimaryButton.astro";
 >
   <div class="absolute inset-0 bg-black/70"></div>
 
-  <div>
-    <nav class="relative z-10 py-4 px-4">
-      <h1 class="text-md text-center font-black uppercase">LOGO</h1>
-    </nav>
+  <nav class="relative z-10 py-4 px-4">
+    <h1 class="text-md text-center font-black uppercase">LOGO</h1>
+  </nav>
 
-    <div
-      class="relative z-10 container mx-auto text-center px-4 mt-2 space-y-2"
-    >
-      <h1 class="text-lg font-bold">
-        <span
-          style={{ "box-shadow": "4px 4px 1px 1px #000000" }}
-          class="bg-secondary px-2 mx-1 -rotate-6 inline-block font-bold"
-        >
-          Aprende hoy
-        </span>
-        a crear una tienda online para generar $10.000 USD/mes, incluso sin experiencia
-        previa.
-      </h1>
+  <div class="relative z-10 container mx-auto text-center px-4 my-2 space-y-2">
+    <h1 class="text-lg font-bold">
+      <span
+        style={{ "box-shadow": "4px 4px 1px 1px #000000" }}
+        class="bg-secondary px-2 mx-1 -rotate-6 inline-block font-bold"
+      >
+        Aprende hoy
+      </span>
+      a crear una tienda online para generar $10.000 USD/mes, incluso sin experiencia
+      previa.
+    </h1>
 
-      <p class="text-text text-balance text-md inline-block">
-        Incluso aunque hoy solo dependas de tu sueldo, de tu tienda física o de
-        tu propia marca que casi nadie conoce.
-      </p>
-    </div>
+    <p class="text-text text-balance text-md inline-block">
+      Incluso aunque hoy solo dependas de tu sueldo, de tu tienda física o de tu
+      propia marca que casi nadie conoce.
+    </p>
   </div>
 
   <form class="relative z-10 container mx-auto px-4" action="POST">
@@ -50,7 +46,7 @@ import PrimaryButton from "@/components/ui/PrimaryButton.astro";
       <input
         type="email"
         placeholder="user@test.xyz"
-        class="bg-white text-black placeholder:text-layout/30 p-2 rounded-md w-full text-sm"
+        class="bg-white text-black placeholder:text-layout/30 px-2 py-3 rounded-md w-full text-sm"
       />
       <PrimaryButton type="submit">
         <Icon name="mdi:register" />

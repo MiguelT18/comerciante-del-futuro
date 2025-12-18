@@ -1,4 +1,17 @@
+---
+import { Image } from "astro:assets";
+import AgencyLogo from "@/images/logo.jpg";
+---
+
 <footer class="p-4 bg-black">
-  <!-- TODO: 👇🏻 Insert agency logo here -->
-  <span>© Todos los derechos reservados</span>
+  <Image
+    src={AgencyLogo}
+    alt="Logotipo oficial de Carrasco LLC"
+    width={120}
+    height={120}
+    class="mx-auto"
+  />
+  <span class="text-center w-full inline-block"
+    >© Todos los derechos reservados</span
+  >
 </footer>
