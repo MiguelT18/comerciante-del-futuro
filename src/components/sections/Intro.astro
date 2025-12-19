@@ -53,20 +53,26 @@ const INTRO_AUDIENCE: IntroCards[] = [
     animation-timeline: --reveal;
     animation-range: entry 25% cover 50%;
   }
+
+  .card-shadow {
+    box-shadow: 0 0 10px 5px rgba(152, 76, 201, 0.25);
+  }
 </style>
 
 <section class="container mx-auto p-4">
-  <h1 class="font-bebas-neue text-secondary text-center text-xl mb-4">
+  <h1 class="font-bebas-neue text-secondary text-center text-xl mb-6">
     Este evento es para ti si...
   </h1>
 
-  <ul class="mb-4 grid grid-cols-1 md:grid-cols-2 gap-4">
+  <ul class="mb-8 grid grid-cols-1 md:grid-cols-2 gap-8">
     {
       INTRO_AUDIENCE.map((card) => (
-        <li class="bg-surface">
-          <Icon name={card.icon} />
-          <h3>{card.headline}</h3>
-          <p>{card.copy}</p>
+        <li class="bg-surface border-2 border-primary/70 p-4 rounded-lg card-shadow">
+          <Icon name={card.icon} class="text-primary size-12" />
+          <div class="space-y-2 mt-4">
+            <h3 class="text-md font-bold inline-block">{card.headline}</h3>
+            <p class="text-sm text-text inline-block">{card.copy}</p>
+          </div>
         </li>
       ))
     }
