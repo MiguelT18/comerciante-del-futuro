@@ -40,15 +40,21 @@ const FUNNEL_HIGHLIGHTS: FunnelHighlights[] = [
     Más información sobre este evento
   </h1>
 
-  <ul class="mb-4">
+  <ul class="mb-4 flex flex-col gap-6">
     {
       FUNNEL_HIGHLIGHTS.map((card, i) => (
-        <li>
-          <h3>Pilar {i + 1}</h3>
-          <p>{card.summary}</p>
-          <ul>
+        <li class="card bg-surface border-2 border-primary/70 p-4 rounded-xl card-shadow">
+          <h3 class="uppercase font-bold text-lg">Pilar {i + 1}</h3>
+          <span class="text-md">{card.summary}</span>
+          <ul class="space-y-2 mt-4">
             {card.basics.map((basic) => (
-              <li>{basic}</li>
+              <li class="text-text flex items-center gap-2">
+                <Icon
+                  name="icon-park-twotone:check-one"
+                  class="size-10 text-green-500"
+                />
+                {basic}
+              </li>
             ))}
           </ul>
         </li>
