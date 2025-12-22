@@ -17,14 +17,14 @@ const INSTRUCTORS: TeamCard[] = [
     age: 24,
     image: JohnPic,
     story:
-      "Lorem ipsum dolor sit amet consectetur adipiscing elit quisque faucibus ex sapien vitae.",
+      "Lorem ipsum dolor sit amet consectetur adipiscing elit quisque faucibus ex sapien vitae. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.",
   },
   {
     name: "Jane Doe",
     age: 28,
     image: AlonsoPic,
     story:
-      "Lorem ipsum dolor sit amet consectetur adipiscing elit quisque faucibus ex sapien vitae.",
+      "Lorem ipsum dolor sit amet consectetur adipiscing elit quisque faucibus ex sapien vitae. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.",
   },
 ];
 ---
@@ -36,35 +36,101 @@ const INSTRUCTORS: TeamCard[] = [
 
   <ul class="grid grid-cols-1 md:grid-cols-2 gap-8">
     {
-      INSTRUCTORS.map((instructor) => (
-        <li class="card card-shadow relative rounded-xl border-2 border-primary/70">
-          <Image
-            src={instructor.image}
-            alt={`Fotografía de ${instructor.name}`}
-            width={500}
-            height={500}
-            class="rounded-[inherit]"
-          />
+      INSTRUCTORS.map((instructor, index) => {
+        const storyId = `story-${index}`;
+        const buttonId = `button-${index}`;
+        const maxLength = 100;
+        const isLongStory = instructor.story.length > maxLength;
+        const truncatedStory = isLongStory
+          ? instructor.story.slice(0, maxLength) + "..."
+          : instructor.story;
 
-          <div
-            class="absolute inset-0 rounded-[inherit]"
-            style="background: linear-gradient(to bottom, transparent 0%, transparent 70%, #000 100%);"
-          />
+        return (
+          <li class="card card-shadow relative rounded-xl border-2 border-primary/70">
+            <Image
+              src={instructor.image}
+              alt={`Fotografía de ${instructor.name}`}
+              width={500}
+              height={500}
+              class="rounded-[inherit]"
+            />
 
-          <div class="absolute bottom-0 p-4">
-            <div class="flex items-center justify-between mb-2">
-              <h3 class="text-lg font-bold">{instructor.name}</h3>
-              <span class="text-sm rounded-full bg-primary/30 border-2 border-primary px-4 py-2">
-                {instructor.age} años
-              </span>
+            <div
+              id={`overlay-${index}`}
+              class="absolute inset-0 rounded-[inherit]"
+              style="background: linear-gradient(to bottom, transparent 0%, transparent 50%, #000 100%);"
+            />
+
+            <div class="absolute bottom-0 p-4">
+              <div class="flex items-center justify-between mb-2">
+                <h3 class="text-lg font-bold">{instructor.name}</h3>
+                <span class="text-sm rounded-full bg-primary/30 border-2 border-primary px-4 py-2">
+                  {instructor.age} años
+                </span>
+              </div>
+              <p
+                class="text-sm text-text"
+                id={storyId}
+                data-full-text={instructor.story}
+              >
+                {isLongStory ? truncatedStory : instructor.story}
+              </p>
+              {isLongStory && (
+                <button
+                  type="button"
+                  class="text-sm underline mx-auto w-full mt-2"
+                  id={buttonId}
+                  data-expanded="false"
+                >
+                  Ver más
+                </button>
+              )}
             </div>
-            <p class="text-sm text-text">{instructor.story}</p>
-            <button type="button" class="text-sm underline">
-              Ver más
-            </button>
-          </div>
-        </li>
-      ))
+          </li>
+        );
+      })
     }
   </ul>
 </section>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const buttons = document.querySelectorAll('[id^="button-"]');
+
+    buttons.forEach((button) => {
+      button.addEventListener("click", () => {
+        const buttonId = button.id;
+        const index = buttonId.split("-")[1];
+        const storyElement = document.getElementById(`story-${index}`);
+        const overlayElement = document.getElementById(`overlay-${index}`);
+        const isExpanded = button.getAttribute("data-expanded") === "true";
+
+        if (storyElement) {
+          const fullText = storyElement.getAttribute("data-full-text") || "";
+          const truncatedText =
+            fullText.length > 100 ? fullText.slice(0, 100) + "..." : fullText;
+
+          if (isExpanded) {
+            storyElement.textContent = truncatedText;
+            button.textContent = "Ver más";
+            button.setAttribute("data-expanded", "false");
+            // Restaurar gradiente original
+            if (overlayElement) {
+              overlayElement.style.background =
+                "linear-gradient(to bottom, transparent 0%, transparent 50%, #000 100%)";
+            }
+          } else {
+            storyElement.textContent = fullText;
+            button.textContent = "Ver menos";
+            button.setAttribute("data-expanded", "true");
+            // Cambiar a capa completamente negra
+            if (overlayElement) {
+              overlayElement.style.background =
+                "linear-gradient(to bottom, transparent 0%, transparent 0%, #000 60%)";
+            }
+          }
+        }
+      });
+    });
+  });
+</script>
