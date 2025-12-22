@@ -30,3 +30,24 @@ import Intro from "@/components/sections/Intro.astro";
   <FAQ />
   <Footer />
 </Layout>
+
+<script>
+  const buttons = document.querySelectorAll(
+    "#scroll-to-email"
+  ) as NodeListOf<HTMLButtonElement>;
+  const emailInput = document.querySelector("#email-input") as HTMLInputElement;
+
+  buttons.forEach((btn) => {
+    btn?.addEventListener("click", () => {
+      emailInput.scrollIntoView({
+        behavior: "smooth",
+        block: "center",
+      });
+
+      // Espera a que termine el scroll antes de enfocar
+      setTimeout(() => {
+        emailInput.focus();
+      }, 1000);
+    });
+  });
+</script>
