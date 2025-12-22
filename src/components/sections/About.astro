@@ -1,8 +1,12 @@
 ---
+import { Image } from "astro:assets";
+import JohnPic from "@/images/john-picture.png";
+import AlonsoPic from "@/images/alonso-picture.png";
+
 interface TeamCard {
   name: string;
   age: number;
-  image: string;
+  image: ImageMetadata;
   story: string;
 }
 
@@ -11,14 +15,14 @@ const INSTRUCTORS: TeamCard[] = [
   {
     name: "John Doe",
     age: 24,
-    image: "/images/john.png",
+    image: JohnPic,
     story:
       "Lorem ipsum dolor sit amet consectetur adipiscing elit quisque faucibus ex sapien vitae.",
   },
   {
     name: "Jane Doe",
     age: 28,
-    image: "/images/jane.png",
+    image: AlonsoPic,
     story:
       "Lorem ipsum dolor sit amet consectetur adipiscing elit quisque faucibus ex sapien vitae.",
   },
@@ -30,16 +34,35 @@ const INSTRUCTORS: TeamCard[] = [
     ¿Quiénes somos?
   </h1>
 
-  <ul>
+  <ul class="grid grid-cols-1 md:grid-cols-2 gap-8">
     {
       INSTRUCTORS.map((instructor) => (
-        <li>
-          <div>
-            <h3>{instructor.name}</h3>
-            <span>{instructor.age}</span>
+        <li class="card card-shadow relative rounded-xl border-2 border-primary/70">
+          <Image
+            src={instructor.image}
+            alt={`Fotografía de ${instructor.name}`}
+            width={500}
+            height={500}
+            class="rounded-[inherit]"
+          />
+
+          <div
+            class="absolute inset-0 rounded-[inherit]"
+            style="background: linear-gradient(to bottom, transparent 0%, transparent 70%, #000 100%);"
+          />
+
+          <div class="absolute bottom-0 p-4">
+            <div class="flex items-center justify-between mb-2">
+              <h3 class="text-lg font-bold">{instructor.name}</h3>
+              <span class="text-sm rounded-full bg-primary/30 border-2 border-primary px-4 py-2">
+                {instructor.age} años
+              </span>
+            </div>
+            <p class="text-sm text-text">{instructor.story}</p>
+            <button type="button" class="text-sm underline">
+              Ver más
+            </button>
           </div>
-          <p>{instructor.story}</p>
-          <button type="button">Ver más</button>
         </li>
       ))
     }
