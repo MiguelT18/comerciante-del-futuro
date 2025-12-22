@@ -18,7 +18,7 @@ body {
   --text-sm: clamp(calc(1.6 * var(--u)), 0.75rem + 0.5vw, calc(1.8 * var(--u)));
   --text-md: clamp(calc(1.8 * var(--u)), 0.75rem + 1.4vw, calc(2.6 * var(--u)));
   --text-lg: clamp(calc(2.6 * var(--u)), 0.75rem + 3vw, calc(3.2 * var(--u)));
-  --text-xl: clamp(calc(3.6 * var(--u)), 0.75rem + 4vw, calc(4 * var(--u)));
+  --text-xl: clamp(calc(3.8 * var(--u)), 0.75rem + 4vw, calc(4.2 * var(--u)));
 }
 
 /* COLOR PALETTE */
