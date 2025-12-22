@@ -31,16 +31,25 @@ const FAQ_ITEMS: FaqItem[] = [
     Preguntas frecuentes
   </h1>
 
-  <div class="mb-4">
+  <div class="mb-4 space-y-6">
     {
       FAQ_ITEMS.map((item) => (
-        <details>
-          <summary>
-            {item.question}
-            <Icon name="bxs:up-arrow" />
-          </summary>
-          <p>{item.answer}</p>
-        </details>
+        <article
+          data-faq
+          class="bg-surface border-2 border-primary/70 rounded-xl p-4"
+        >
+          <div class="flex items-center justify-between gap-4">
+            <span class="inline-block font-bold text-md">{item.question}</span>
+            <Icon
+              name="bxs:up-arrow"
+              class="faq-icon size-6 text-primary transition-all duration-300"
+            />
+          </div>
+
+          <div class="faq-answer overflow-hidden max-h-0 opacity-0 transition-all duration-300">
+            <p class="inline-block text-sm text-text mt-4">{item.answer}</p>
+          </div>
+        </article>
       ))
     }
   </div>
@@ -50,3 +59,55 @@ const FAQ_ITEMS: FaqItem[] = [
     ¡Registrarme ya!
   </PrimaryButton>
 </section>
+
+<script>
+  const faqs = document.querySelectorAll(
+    "[data-faq]"
+  ) as NodeListOf<HTMLElement>;
+  let activeFaq: null | HTMLElement = null;
+
+  const closeFaq = (faq: HTMLElement | null) => {
+    if (!faq) return;
+
+    faq.classList.remove("card-shadow");
+
+    const answer = faq.querySelector(".faq-answer") as HTMLElement;
+    const icon = faq.querySelector(".faq-icon") as HTMLElement;
+
+    answer.style.maxHeight = "0px";
+    answer.style.opacity = "0";
+    icon.style.transform = "rotate(0deg)";
+  };
+
+  const openFaq = (faq: HTMLElement | null) => {
+    faq?.classList.add("card-shadow");
+
+    const answer = faq?.querySelector(".faq-answer") as HTMLElement;
+    const icon = faq?.querySelector(".faq-icon") as HTMLElement;
+
+    answer.style.maxHeight = answer.scrollHeight + "px";
+    answer.style.opacity = "1";
+    icon.style.transform = "rotate(180deg)";
+  };
+
+  faqs.forEach((faq: HTMLElement | null) => {
+    faq?.addEventListener("click", (e) => {
+      e.stopPropagation();
+
+      if (activeFaq === faq) {
+        closeFaq(activeFaq);
+        activeFaq = null;
+        return;
+      }
+
+      closeFaq(activeFaq);
+      openFaq(faq);
+      activeFaq = faq;
+    });
+  });
+
+  document.addEventListener("click", () => {
+    closeFaq(activeFaq);
+    activeFaq = null;
+  });
+</script>

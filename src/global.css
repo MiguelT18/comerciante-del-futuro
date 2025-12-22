@@ -49,7 +49,7 @@ body {
 }
 
 .card-shadow {
-  box-shadow: 0 0 10px 5px rgba(152, 76, 201, 0.25);
+  box-shadow: 0 0 10px 5px rgba(152, 76, 201, 0.3);
 }
 
 @keyframes show {
